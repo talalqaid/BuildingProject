@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class House extends Building {
     private int numOfRooms;
     private boolean hasGarage;
@@ -8,6 +10,20 @@ public class House extends Building {
         this.numOfRooms = numOfRooms;
         this.hasGarage = hasGarage;
         numOfHouses++;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        House house = (House) o;
+        return numOfRooms == house.numOfRooms && hasGarage == house.hasGarage;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), numOfRooms, hasGarage);
     }
 
     public static void setZeroHouses() {

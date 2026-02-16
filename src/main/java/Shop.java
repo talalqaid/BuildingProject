@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Shop extends Building{
     private int numOfEmployees;
     private double averageTurnover;
@@ -32,6 +34,20 @@ public class Shop extends Building{
 
     public void setAverageTurnover(double averageTurnover) {
         this.averageTurnover = averageTurnover;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Shop shop = (Shop) o;
+        return numOfEmployees == shop.numOfEmployees && Double.compare(averageTurnover, shop.averageTurnover) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), numOfEmployees, averageTurnover);
     }
 
     @Override

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Building {
     private String owner;
     private String address;
@@ -45,6 +47,19 @@ public class Building {
                 "owner='" + owner + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Building building = (Building) o;
+        return Objects.equals(owner, building.owner) && Objects.equals(address, building.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(owner, address);
     }
 
     public static void main(String[] args) {
