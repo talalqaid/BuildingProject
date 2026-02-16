@@ -5,18 +5,32 @@ import static org.junit.jupiter.api.Assertions.*;
 class ArrayBagTest {
 
     @Test
-    void add() {
+    void addTest() {
         ArrayBag<Building> ar=new ArrayBag<>();
         Building b1=new Building("Peter","111 Main St");
         ar.add(b1);
         assertTrue(ar.contains(b1));
     }
     @Test
-    void remove() {
+    void removeTest() {
         ArrayBag<Building> ar=new ArrayBag<>();
         Building b1=new Building("Peter","111 Main St");
         ar.add(b1);
         ar.remove(b1);
         assertFalse(ar.contains(b1));
+    }
+    @Test
+    void getTest() {
+        ArrayBag<Building> ar=new ArrayBag<>();
+        Building b1=new Building("Peter","111 Main St");
+        ar.add(b1);
+        assertTrue(b1.equals(ar.get(ar.size()-1)));
+    }
+    @Test
+    void sizeTest() {
+        ArrayBag<Building> ar=new ArrayBag<>();
+        Building b1=new Building("Peter","111 Main St");
+        ar.add(b1);
+        assertTrue(ar.size() == 1);
     }
 }
