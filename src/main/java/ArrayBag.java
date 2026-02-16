@@ -27,7 +27,12 @@ public class ArrayBag<T> implements BagInterface<T> {
         bag[numberOfEntries++] = newEntry;
         return true;
     }
-
+    public T get(int i){
+        if(i<0 || i>=numberOfEntries){
+            return null;
+        }
+        return bag[i];
+    }
     @Override
     public T remove() {
         if (isEmpty()) {

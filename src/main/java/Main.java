@@ -1,11 +1,13 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        Building[] build=new Building[12];
+        ArrayBag<Building> ar=new ArrayBag<>();
+        //ArrayList<Building> ar=new ArrayList<Building>();
         File file=new File("src/main/java/buildings.txt");
         Scanner sc=new Scanner(file);
         int i=0;
@@ -20,26 +22,24 @@ public class Main {
                 case "H":
                     int rooms = Integer.parseInt(tokens[3]);
                     boolean hasGarage = Boolean.parseBoolean(tokens[4]);
-                    build[i]=new House(owner, address, rooms, hasGarage);
+                    ar.add(new House(owner, address, rooms, hasGarage));
                     break;
                 case "S":
                     int employees = Integer.parseInt(tokens[3]);
                     int turnover = Integer.parseInt(tokens[4]);
-                    build[i]=new Shop(owner, address, employees, turnover);
+                    ar.add(new Shop(owner, address, employees, turnover));
                     break;
                 case "B":
                 default:
-                    build[i]=new Building(owner, address);
+                    ar.add(new Building(owner, address));
                     break;
             }
             i++;
         }
         sc.close();
-        i=0;
-        for(Building b:build){
+        for(i=0;i<ar.size();i++){
             System.out.print("Building:"+i+"\n");
-            System.out.println(b);
-            i++;
+            System.out.println(ar.get(i));
         }
     }
 }

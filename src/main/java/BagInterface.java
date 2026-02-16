@@ -2,6 +2,7 @@ public interface BagInterface <T>{
     int size();
     boolean isEmpty();
     boolean add(T newEntry);
+    T get(int index);
     T remove();
     boolean remove(T anEntry);
     void clear();
