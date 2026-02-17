@@ -37,9 +37,13 @@ public class Main {
             i++;
         }
         sc.close();
-        for(i=0;i<ar.size();i++){
-            System.out.print("Building:"+i+"\n");
-            System.out.println(ar.get(i));
-        }
+//        for(i=0;i<ar.size();i++){
+//            System.out.print("Building:"+i+"\n");
+//            System.out.println(ar.get(i));
+//        }
+
+        Building b1=new Building("Bob Brown","789 Oak St");
+        ar.remove(b1);
+        System.out.println(ar.contains(b1));
     }
 }

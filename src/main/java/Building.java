@@ -11,14 +11,14 @@ public class Building {
         numOfBuildings++;
     }
 
-    public static void setZeroBuildings() {
-        Building.numOfBuildings = 0;
-    }
 
     public Building(String owner, String address) {
         this.owner = owner;
         this.address = address;
         numOfBuildings++;
+    }
+    public static void setZeroBuildings() {
+        Building.numOfBuildings = 0;
     }
 
     public String getOwner() {
