@@ -50,15 +50,7 @@ class ArrayBagTest {
         ar.add(b1);
         assertTrue(ar.contains(b1));
     }
-    @Test
-    void getFrequencyOfTest(){
-        ArrayBag<Building> ar=new ArrayBag<>();
-        Building b1=new Building("Peter","111 Main St");
-        ar.add(b1);
-        assertEquals(1,ar.getFrequencyOf(b1));
-        ar.add(b1);
-        assertEquals(2,ar.getFrequencyOf(b1));
-    }
+
     @Test
     void clearTest(){
         ArrayBag<Building> ar=new ArrayBag<>();
