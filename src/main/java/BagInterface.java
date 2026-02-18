@@ -5,6 +5,7 @@ public interface BagInterface <T>{
     T get(int index);
     T remove();
     boolean remove(T anEntry);
+    boolean remove(int index);
     void clear();
     int getFrequencyOf(T anEntry);
     boolean contains(T anEntry);

@@ -26,7 +26,7 @@ public class Main {
                     break;
                 case "S":
                     int employees = Integer.parseInt(tokens[3]);
-                    int turnover = Integer.parseInt(tokens[4]);
+                    double turnover = Double.parseDouble(tokens[4]);
                     ar.add(new Shop(owner, address, employees, turnover));
                     break;
                 case "B":

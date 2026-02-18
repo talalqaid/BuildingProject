@@ -16,6 +16,7 @@ class ArrayBagTest {
         ArrayBag<Building> ar=new ArrayBag<>();
         Building b1=new Building("Peter","111 Main St");
         ar.add(b1);
+        assertTrue(ar.contains(b1));
         ar.remove(b1);
         assertFalse(ar.contains(b1));
     }
@@ -32,6 +33,11 @@ class ArrayBagTest {
         Building b1=new Building("Peter","111 Main St");
         ar.add(b1);
         assertEquals(1,ar.size());
+        ar.add(b1);
+        assertEquals(2,ar.size());
+        ar.remove(b1);
+        assertEquals(1,ar.size());
+
     }
 
     @Test
@@ -65,5 +71,14 @@ class ArrayBagTest {
         ArrayBag<Building> ar=new ArrayBag<>();
         assertTrue(ar.isEmpty());
         assertEquals(0,ar.size());
+    }
+    @Test
+    void getFrequecyOf(){
+        ArrayBag<Building> ar=new ArrayBag<>();
+        Building b1=new Building("Peter","111 Main St");
+        ar.add(b1);
+        assertEquals(1,ar.getFrequencyOf(b1));
+        ar.add(b1);
+        assertEquals(2,ar.getFrequencyOf(b1));
     }
 }
