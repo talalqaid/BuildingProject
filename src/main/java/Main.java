@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayBag<Building> ar=new ArrayBag<>();
-        //ArrayList<Building> ar=new ArrayList<Building>();
+        //ArrayBag<Building> ar=new ArrayBag<>();
+        ArrayList<Building> ar=new ArrayList<>();
         File file=new File("src/main/java/buildings.txt");
         Scanner sc=new Scanner(file);
         int i=0;
@@ -22,16 +22,19 @@ public class Main {
                 case "H":
                     int rooms = Integer.parseInt(tokens[3]);
                     boolean hasGarage = Boolean.parseBoolean(tokens[4]);
-                    ar.add(new House(owner, address, rooms, hasGarage));
+                    House h1=new House(owner, address, rooms, hasGarage);
+                    ar.add(h1);
                     break;
                 case "S":
                     int employees = Integer.parseInt(tokens[3]);
                     double turnover = Double.parseDouble(tokens[4]);
-                    ar.add(new Shop(owner, address, employees, turnover));
+                    Shop s1=new Shop(owner, address, employees, turnover);
+                    ar.add(s1);
                     break;
                 case "B":
                 default:
-                    ar.add(new Building(owner, address));
+                    Building b1=new Building(owner, address);
+                    ar.add(b1);
                     break;
             }
             i++;

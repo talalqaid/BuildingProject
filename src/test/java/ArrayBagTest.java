@@ -15,10 +15,30 @@ class ArrayBagTest {
     void removeTest() {
         ArrayBag<Building> ar=new ArrayBag<>();
         Building b1=new Building("Peter","111 Main St");
+        Building b2=new Building("Jhon","111 Main St");
         ar.add(b1);
-        assertTrue(ar.contains(b1));
+        ar.add(b2);
+        ar.remove();
+        assertAll(
+                ()-> assertFalse(ar.contains(b2)),
+                ()-> assertTrue(ar.contains(b1))
+        );
+
+        ar.add(b2);
+        ar.remove(0);
+        assertAll(
+                ()-> assertFalse(ar.contains(b1)),
+                ()-> assertTrue(ar.contains(b2))
+        );
+
+        ar.add(b1);
         ar.remove(b1);
-        assertFalse(ar.contains(b1));
+        assertAll(
+                ()->assertFalse(ar.contains(b1)),
+                ()->assertTrue(ar.contains(b2))
+        );
+
+        
     }
     @Test
     void getTest() {
