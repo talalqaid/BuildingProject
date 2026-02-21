@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayBag<Building> ar=new ArrayBag<>();
-        LinkedBag<Building> ar2=new LinkedBag<>();
+        //ArrayBag<Building> ar=new ArrayBag<>();
+        LinkedBag<Building> ar=new LinkedBag<>();
         //ArrayList<Building> ar=new ArrayList<>();
         File file=new File("src/main/java/buildings.txt");
         Scanner sc=new Scanner(file);
