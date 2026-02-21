@@ -45,7 +45,17 @@ public class ArrayBag<T> implements BagInterface<T> {
         numberOfEntries--;
         return removedEntry;
     }
-
+    @Override
+    public boolean remove(int index) {
+        if (index>=0 && index<numberOfEntries) {
+            bag[index] = bag[numberOfEntries - 1];
+            bag[numberOfEntries - 1] = null;
+            numberOfEntries--;
+            return true;
+        }
+        return false;
+    }
+    
     @Override
     public boolean remove(T anEntry) {
         int index = getIndexOf(anEntry);
@@ -58,16 +68,7 @@ public class ArrayBag<T> implements BagInterface<T> {
         return false;
     }
 
-    @Override
-    public boolean remove(int index) {
-        if (index>=0 && index<numberOfEntries) {
-            bag[index] = bag[numberOfEntries - 1];
-            bag[numberOfEntries - 1] = null;
-            numberOfEntries--;
-            return true;
-        }
-        return false;
-    }
+
 
     @Override
     public void clear() {

@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        //ArrayBag<Building> ar=new ArrayBag<>();
-        ArrayList<Building> ar=new ArrayList<>();
+        ArrayBag<Building> ar=new ArrayBag<>();
+        LinkedBag<Building> ar2=new LinkedBag<>();
+        //ArrayList<Building> ar=new ArrayList<>();
         File file=new File("src/main/java/buildings.txt");
         Scanner sc=new Scanner(file);
-        int i=0;
+
         while(sc.hasNext()){
             String line=sc.nextLine();
             String[] tokens=line.split("\\|");
@@ -37,10 +38,9 @@ public class Main {
                     ar.add(b1);
                     break;
             }
-            i++;
         }
         sc.close();
-        for(i=0;i<ar.size();i++){
+        for(int i=0;i<ar.size();i++){
             System.out.print("Building:"+i+"\n");
             System.out.println(ar.get(i));
         }
